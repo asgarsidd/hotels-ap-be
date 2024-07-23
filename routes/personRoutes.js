@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
 
     console.log("data saved succesfully -->");
     res.status(200).json(response);
-    res.status(200).send({ message: "data saved succesfully" });
+    // res.status(200).send({ message: "data saved succesfully" });
   } catch (err) {
     console.log("API Error :", err);
     res.status(500).json({ error: "Internal Server Error" });

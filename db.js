@@ -1,9 +1,10 @@
 // MongoDB server is conection that connect nodejs server to MongoDb server..
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 
 //Define mongoDB url 
-const mongoUrl = 'mongodb://localhost:27017/hotels'; //replace hotels with your database name
+// const mongoUrl = 'mongodb://localhost:27017/hotels'; //replace hotels with your database name
+const mongoUrl = process.env.URL;
 
 // Set up mongoDB connection
 mongoose.connect(mongoUrl)
