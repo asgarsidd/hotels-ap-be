@@ -84,7 +84,6 @@ router.delete("/:id", async (req, res) => {
     const response = await Menu.findByIdAndDelete(id);
     if (!response) {
       return res.status(404).json({ error: "Menu Item not found" });
-      console.log("Not found");
     }
     console.log("Deleted Succesfully");
     res.status(200).json({ message: "Deleted Succesfully" });
