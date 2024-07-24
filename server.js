@@ -12,6 +12,14 @@ app.get('/', (req, res) => {
    res.send('Welcome to Node Js and MongoDB Tutorial!')
 })
 
+// Middleware to catch JSON parsing errors
+app.use((err, req, res, next) => {
+   if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+     console.error('Bad JSON:', err);
+     return res.status(400).send({ message: 'Invalid JSON payload' });
+   }
+   next();
+ });
 
 //Import routers files for Menu
 const menuItemRoutes = require('./routes/menuItemRoutes')
