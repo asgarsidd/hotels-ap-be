@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
    res.send('Welcome to Node Js and MongoDB Tutorial!')
 })
 
-// Middleware to catch JSON parsing errors
+// Middleware to catch JSON parsing errors 
 app.use((err, req, res, next) => {
    if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
      console.error('Bad JSON:', err);
@@ -21,7 +21,7 @@ app.use((err, req, res, next) => {
    next();
  });
 
-//Import routers files for Menu
+//Import routers files for Menu Routes
 const menuItemRoutes = require('./routes/menuItemRoutes')
 // Use the routes
 app.use('/menu', menuItemRoutes);
